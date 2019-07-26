@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}SYF{% endblock title %}</title>
+{#    <link rel="shortcut icon" href="{% static 'vendor/img/favicon.ico' %}"/>#}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Ni Hardware -->
+    <link rel="stylesheet" href="{% static 'user/css/user.css' %}"/>
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}"/>
+    <link rel="stylesheet" href="{% static 'hardware/css/hardware.css' %}"/>
+    {% block extra_css %}
+    {% endblock extra_css %}
+  </head>
+  <body>
+    {% block navbar %}
+    {% endblock navbar %}
+
+    {% block sidebar %}
+    {% endblock sidebar %}
+
+    <div class="container-fluid content_dashboard" id="dashboard">
+      <div class="row">
+        <div class="col">
+          {% block content_dashboard %}
+          {% endblock content_dashboard %}
+        </div>
+      </div>
+    </div>
+
+    {% block filter %}
+    {% endblock filter %}
+
+    <div class="container-fluid">
+      <div class="row" style="overflow-x: auto;">
+        <div class="col">
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          {% block content_left %}
+          {% endblock content_left %}
+        </div>
+        <div class="col-md-4">
+          {% block content_center %}
+          {% endblock content_center %}
+        </div>
+        <div class="col-md-4">
+          {% block content_right %}
+          {% endblock content_right %}
+        </div>
+      </div>
+    </div>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Feather icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>feather.replace()</script>
+    <!-- Ni Hardware -->
+    <script src="{% static 'user/js/user.js' %}"></script>
+    <script src="{% static 'dashboard/js/dashboard.js' %}"></script>
+    <script src="{% static 'hardware/js/hardware.js' %}"></script>
+    <script src="{% static 'hardware_control/js/hardware_control.js' %}"></script>
+    {% block extra_js %}
+    {% endblock extra_js %}
+  </body>
+</html>

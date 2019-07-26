@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+<nav class="col-md-2 d-none bg-light filter border p-2 mt-5">
+  <div class="filter-sticky">
+    <form method="get" action="" onsubmit="return filter_url (this)" accept-charset="utf-8">
+      <div class="form-group">
+        {{ form|crispy }}
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary">Filter</button>
+      </div>
+    </form>
+  </div>
+</nav>

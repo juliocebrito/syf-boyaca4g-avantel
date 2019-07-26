@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load filter_tags %}
+{% block title %}SyF Hardware{% endblock title %}
+
+{% block navbar %}
+{% include 'dashboard/includes/partials/navbar.html' %}
+{% endblock navbar %}
+
+{% block sidebar %}
+{% include 'dashboard/includes/partials/sidebar.html' %}
+{% endblock sidebar %}
+
+{% block content_dashboard %}
+
+<main role="main" class="">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-2 border-bottom mb-2">
+    <h2 class="text-dark">Hardware</h2>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'hardware:export_hardware' %}?{{query_dict|get_encoded_dict}}">
+          <span data-feather="download"></span>
+          Exportar
+        </a>
+      </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle mr-2  disabled" id="action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span data-feather="play"></span>
+          Accion
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#"></a>
+        </div>
+      </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span data-feather="calendar"></span>
+          Hoy
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Created</a>
+          <a class="dropdown-item" href="#">Updated</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'hardware:hardware_list' %}">Hardware</a>
+    </li>
+  </ul>
+  <div class="d-flex justify-content-end flex-wrap flex-md-nowrap align-items-center">
+    {% if result %}
+    found {{ result }} de  {{ all_items }} items
+    {% else %}
+    {% endif %}
+    <a class="nav-link btn btn-light btn-sm ml-3" href="#" id="filter-toggle"><span data-feather="menu"></span> Filter</a>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm" id="table_hardware">
+      <thead>
+        {% include 'hardware/includes/partials/hardware_head.html' %}
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+          {% include 'hardware/includes/partials/hardware_body.html' %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+<div class="row border-bottom d-flex justify-content-end align-items-center mr-2">
+    {% include 'dashboard/includes/partials/nav_paginate.html' %}
+</div>
+{% endblock content_dashboard %}
+
+{% block filter %}
+{% include 'dashboard/includes/partials/filter.html' %}
+{% endblock filter %}

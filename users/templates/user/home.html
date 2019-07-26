@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block navbar %}
+{% include "user/includes/partials/navbar.html" %}
+{% endblock navbar %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Welcome</h1>
+  <p class="lead">This is a web application for hardware control.</p>
+  <hr class="my-4">
+  <p class="lead">
+    <button class="btn btn-primary" onclick="return login('{% url 'user:login' %}')"  role="button">Login</button>
+    <button class="btn btn-primary" onclick="return signin('{% url 'user:signin' %}')" role="button">Signin</button>
+  </p>
+</div>
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true">
+
+</div>
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-hidden="true">
+
+</div>
+{% endblock content %}
