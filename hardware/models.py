@@ -53,8 +53,12 @@ class HardwareControl(models.Model):
     hardware = models.ForeignKey(Hardware, on_delete=models.CASCADE)
     serial = models.CharField(max_length=255, unique=True)
     site = models.CharField(max_length=255, blank=True, null=True)
-    quantity = models.PositiveIntegerField(default=1, editable=False)
-    hardware_state = models.CharField(max_length=255, choices=choices.HARDWARE_STATE_CHOICES, default=choices.HARDWARE_STATE_CHOICES[0][0])
+    quantity = models.PositiveIntegerField(default=0)
+    hardware_state = models.CharField(max_length=255, choices=choices.HARDWARE_STATE_CHOICES,
+                                      default=choices.HARDWARE_STATE_CHOICES[0][0])
+    active_avantel = models.PositiveIntegerField(default=0)
+    state_avantel = models.CharField(max_length=255, choices=choices.STATE_AVANTEL_CHOICES,
+                                     default=choices.STATE_AVANTEL_CHOICES[0][0])
     state = models.BooleanField(default=True, editable=False)
     sub_state = models.BooleanField(default=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -101,8 +105,12 @@ class HardwareControlLog(models.Model):
     hardware = models.ForeignKey(Hardware, on_delete=models.CASCADE)
     serial = models.CharField(max_length=255, unique=True)
     site = models.CharField(max_length=255, blank=True, null=True)
-    quantity = models.PositiveIntegerField(default=1, editable=False)
-    hardware_state = models.CharField(max_length=255, choices=choices.HARDWARE_STATE_CHOICES, default=choices.HARDWARE_STATE_CHOICES[0][0])
+    quantity = models.PositiveIntegerField(default=0)
+    hardware_state = models.CharField(max_length=255, choices=choices.HARDWARE_STATE_CHOICES,
+                                      default=choices.HARDWARE_STATE_CHOICES[0][0])
+    active_avantel = models.PositiveIntegerField(default=0)
+    state_avantel = models.CharField(max_length=255, choices=choices.STATE_AVANTEL_CHOICES,
+                                     default=choices.STATE_AVANTEL_CHOICES[0][0])
     state = models.BooleanField(default=True, editable=False)
     sub_state = models.BooleanField(default=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -153,6 +161,8 @@ class HardwareControlLog(models.Model):
         instance.hardwarecontrollog.site = instance.site
         instance.hardwarecontrollog.quantity = instance.quantity
         instance.hardwarecontrollog.hardware_state = instance.hardware_state
+        instance.hardwarecontrollog.active_avantel = instance.active_avantel
+        instance.hardwarecontrollog.state_avantel = instance.state_avantel
         instance.hardwarecontrollog.save()
 
     @receiver(post_delete, sender=HardwareControl)

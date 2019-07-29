@@ -18,3 +18,12 @@ UNITY_CHOICES = (
     (PCS, 'pcs'),
     (MTS, 'mts'),
 )
+
+""" STATE_AVANTEL_CHOICES """
+NEW = 'new'
+USED = 'used'
+STATE_AVANTEL_CHOICES = (
+    ('', '---------'),
+    (NEW, 'new'),
+    (USED, 'used'),
+)

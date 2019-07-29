@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps
-    'hardware.apps.HardwareConfig',
     'users.apps.UsersConfig',
+    'hardware.apps.HardwareConfig',
+    'sites.apps.SitesConfig',
+    'meetings.apps.MeetingsConfig',
     # third
     'crispy_forms',
     'import_export',
@@ -160,6 +162,10 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = None
 # SESSION_COOKIE_SECURE = True
 #
 # CSRF_COOKIE_SECURE = True
+
+GS_BUCKET_NAME = os.getenv('BUCKET_NAME')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 try:
     from local_settings import *

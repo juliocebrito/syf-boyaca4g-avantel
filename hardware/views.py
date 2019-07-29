@@ -130,7 +130,11 @@ class HardwareControlSearch(HardwareControlList):
                 reduce(operator.and_,
                        (Q(site__icontains=q) for q in query_list)) |
                 reduce(operator.and_,
-                       (Q(hardware_state__icontains=q) for q in query_list))
+                       (Q(hardware_state__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(active_avantel__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(state_avantel__icontains=q) for q in query_list))
             )
         return queryset
 

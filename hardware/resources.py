@@ -58,6 +58,12 @@ class HardwareControlResource(resources.ModelResource):
     hardware_state = fields.Field(
         column_name='hardware state',
         attribute='hardware_state',)
+    active_avantel = fields.Field(
+        column_name='active avantel',
+        attribute='active_avantel', )
+    state_avantel = fields.Field(
+        column_name='state avantel',
+        attribute='state_avantel', )
 
     class Meta:
         model = HardwareControl
@@ -73,6 +79,8 @@ class HardwareControlResource(resources.ModelResource):
             'serial',
             'site',
             'hardware_state',
+            'active_avantel',
+            'state_avantel',
             # 'estate',
             # 'sub_state',
             # 'create_at',

@@ -15,6 +15,8 @@ class HardwareCategoryAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at',
     )
+    list_filter = ('state', 'sub_state', 'created_at', 'updated_at')
+    search_fields = ['id', 'name']
 
 
 @admin.register(Hardware)
@@ -63,15 +65,17 @@ class HardwareControlAdmin(ImportExportModelAdmin):
         'hardware',
         'serial',
         'site',
-        'hardware_state',
         'quantity',
+        'hardware_state',
+        'active_avantel',
+        'state_avantel',
         'state',
         'sub_state',
         'created_at',
         'updated_at',
     )
     list_filter = ('state', 'sub_state', 'created_at', 'updated_at')
-    search_fields = ['id', 'hardware__cs_code', 'serial', 'site', 'hardware_state']
+    search_fields = ['id', 'hardware__cs_code', 'serial', 'site', 'hardware_state', 'active_avantel', 'state_avante',]
 
     def get_export_formats(self):
         """
