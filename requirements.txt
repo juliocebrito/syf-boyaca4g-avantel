@@ -3,3 +3,5 @@ gunicorn==19.9.0
 psycopg2-binary==2.8.3
 django-crispy-forms==1.7.2
 django-import-export==1.2.0
+google-cloud-storage==1.17.0
+django-storages==1.7.1

@@ -13,6 +13,8 @@ class SiteAdmin(admin.ModelAdmin):
         'file3',
         'file4',
         'file5',
+        'file6',
+        'file7',
         'state',
         'sub_state',
         'created_at',

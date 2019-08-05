@@ -4,7 +4,7 @@ from django.db import models
 
 
 def site_name_str(instance, filename):
-    return 'sites/{0}/{1}'.format(instance.site_name, filename)
+    return 'media/sites/{0}/{1}'.format(instance.site_name, filename)
 
 
 class Site(models.Model):
@@ -14,6 +14,8 @@ class Site(models.Model):
     file3 = models.FileField(upload_to=site_name_str, blank=True, null=True)
     file4 = models.FileField(upload_to=site_name_str, blank=True, null=True)
     file5 = models.FileField(upload_to=site_name_str, blank=True, null=True)
+    file6 = models.FileField(upload_to=site_name_str, blank=True, null=True)
+    file7 = models.FileField(upload_to=site_name_str, blank=True, null=True)
 
     state = models.BooleanField(default=True, editable=False)
     sub_state = models.BooleanField(default=True, editable=False)

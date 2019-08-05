@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     # third
     'crispy_forms',
     'import_export',
+    'storages',
+
 ]
 
 MIDDLEWARE = [
@@ -166,6 +168,12 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = None
 GS_BUCKET_NAME = os.getenv('BUCKET_NAME')
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+from google.oauth2 import service_account
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'syf-boyaca4g-avantel-a605e56d0178.json')
+)
 
 try:
     from local_settings import *

@@ -23,6 +23,8 @@ admin.site.site_header = 'SyF Hardware'
 urlpatterns = [
     path('', include('users.urls', namespace='user')),
     path('hardware/', include('hardware.urls')),
+    path('meetings/', include('meetings.urls')),
+    path('sites/', include('sites.urls')),
     path('admin/', admin.site.urls),
 ]
 

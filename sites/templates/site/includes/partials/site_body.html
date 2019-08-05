@@ -1,0 +1,46 @@
+<tr class="clickable-row">
+  <td>{{ object.id }}</td>
+  <td>{{ object.site_name }}</td>
+
+    {% if object.file1 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file1.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file1 }}</td>
+    {% endif %}
+
+    {% if object.file2 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file2.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file2 }}</td>
+    {% endif %}
+
+    {% if object.file3 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file3.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file3 }}</td>
+    {% endif %}
+
+    {% if object.file4 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file4.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file4 }}</td>
+    {% endif %}
+
+    {% if object.file5 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file5.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file5 }}</td>
+    {% endif %}
+
+    {% if object.file6 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file5.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file6 }}</td>
+    {% endif %}
+
+    {% if object.file7 %}
+        <td><a href="{{ MEDIA_URL }}{{ object.file7.url }}">Download</a></td>
+    {% else %}
+    <td>{{ object.file7 }}</td>
+    {% endif %}
+</tr>
